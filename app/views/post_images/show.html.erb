@@ -1,0 +1,12 @@
+<% @postimages.each do |postimage| %>
+  <p>
+    <%= postimage.name %><br>
+    <%= image_tag postimage.image.url %>
+  </p>
+<% end %>
+<hr>
+<%= form_for :postimage, url: 'postimages/create'  do |f| %>
+  <p><%=f.label "投稿者" %><br><%= f.text_field :name, placeholder: 'ハンドルネーム' %></p>
+  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
+  <p><%= f.submit value: '投稿' %></p>
+<% end %>
